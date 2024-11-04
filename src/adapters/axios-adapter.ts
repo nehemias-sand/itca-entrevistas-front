@@ -13,7 +13,7 @@ export class AxiosAdapter implements HttpAdapter<AxiosRequestConfig> {
         'Content-Type': 'application/json',
         Accept: 'application/json'
       },
-      timeout: 5000
+      timeout: 10000
     })
 
     this.axios.interceptors.request.use((config) => {

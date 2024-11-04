@@ -1,7 +1,7 @@
-import { getAxiosAdapter } from './axios-service'
-import type { ChangePasswordRequest } from './interfaces/request/change-password-request.interface'
-import type { LoginRequest } from './interfaces/request/login-request.interface'
-import { type LoginResponse, type User } from './interfaces/response/login-response.interface'
+import { getAxiosAdapter } from '../common/axios.service'
+import type { ChangePasswordRequest } from './interfaces/change-password-request.interface'
+import type { LoginRequest } from './interfaces/login-request.interface'
+import { type LoginResponse, type User } from './interfaces/login-response.interface'
 
 const axiosAdapter = getAxiosAdapter()
 

@@ -121,7 +121,7 @@ router.beforeEach(
     const authStore = useAuthStore()
     const perfil = computed(() => authStore.user?.perfil || 'GUEST')    
 
-    if (to.name === 'Login' && authStore.isAuthenticated) {   
+    if (to.name === 'Login' && authStore.isAuthenticated()) {   
       return next({ name: 'Dashboard' })
     }
 

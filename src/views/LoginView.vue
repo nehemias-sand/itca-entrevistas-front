@@ -73,9 +73,10 @@
 import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useToast } from 'primevue/usetoast'
-import type { LoginRequest } from '@/services/interfaces/request/login-request.interface'
-import { login } from '@/services/auth.service'
+import type { LoginRequest } from '@/services/auth/interfaces/login-request.interface'
+import { login } from '@/services/auth/auth.service'
 import { useAuthStore } from '@/stores/auth.store'
+import axios from 'axios'
 
 const router = useRouter()
 const toast = useToast()
@@ -103,12 +104,16 @@ const handleSubmit = async () => {
 
       router.push('/dashboard')
     } catch (error) {
-      console.error('Login error:', error)
+      let errorMessage: string = 'Ocurrió un error inesperado';
+
+      if (axios.isAxiosError(error)) {
+        errorMessage = error.response?.data?.message || 'Error en la solicitud'
+      }
 
       toast.add({
         severity: 'error',
         summary: 'Error de inicio de sesión',
-        detail: error instanceof Error ? error.message : 'Ocurrió un error inesperado',
+        detail: errorMessage,
         life: 5000
       })
 

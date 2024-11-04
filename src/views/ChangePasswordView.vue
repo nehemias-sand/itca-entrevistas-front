@@ -84,8 +84,9 @@ import { useToast } from 'primevue/usetoast'
 import { useRouter } from 'vue-router'
 import Password from 'primevue/password'
 import Button from 'primevue/button'
-import { changePassword } from '@/services/auth.service'
-import type { ChangePasswordRequest } from '@/services/interfaces/request/change-password-request.interface'
+import { changePassword } from '@/services/auth/auth.service'
+import type { ChangePasswordRequest } from '@/services/auth/interfaces/change-password-request.interface'
+import axios from 'axios'
 
 const router = useRouter()
 const toast = useToast()
@@ -118,12 +119,16 @@ const handleSubmit = async () => {
 
       router.push('/dashboard')
     } catch (error) {
-      console.log(error)
+      let errorMessage: string = 'Ocurrió un error inesperado';
+
+      if (axios.isAxiosError(error)) {
+        errorMessage = error.response?.data?.message || 'Error en la solicitud'
+      }
 
       toast.add({
         severity: 'error',
         summary: 'Error',
-        detail: 'No se pudo cambiar la contraseña. Por favor, intenta de nuevo.',
+        detail: errorMessage,
         life: 5000
       })
     }
@@ -131,7 +136,7 @@ const handleSubmit = async () => {
     toast.add({
       severity: 'warn',
       summary: 'Formulario inválido',
-      detail: 'Por favor, verifica que todos los campos estén correctamente llenados',
+      detail: 'La contraseña debe tener al menos 8 caracteres',
       life: 3000
     })
   }

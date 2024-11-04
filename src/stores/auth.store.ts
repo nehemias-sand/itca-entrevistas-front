@@ -5,7 +5,7 @@ import { DateTime } from 'luxon'
 import {
   type LoginResponse,
   type User
-} from '@/services/interfaces/response/login-response.interface'
+} from '@/services/auth/interfaces/login-response.interface'
 
 interface DecodedToken {
   exp?: number
@@ -30,10 +30,8 @@ export const useAuthStore = defineStore('auth', {
       return decoded.exp ? now <= decoded.exp : false
     },
 
-    getters: {
-      isAuthenticated(): boolean {
-        return this.checkAuthentication()
-      },
+    isAuthenticated(): boolean {
+      return this.checkAuthentication()
     },
 
     logout() {
@@ -44,7 +42,6 @@ export const useAuthStore = defineStore('auth', {
   },
 
   getters: {
-    isAuthenticated: (state) => !!state.token,
     getUser: (state) => state.user
   },
 
