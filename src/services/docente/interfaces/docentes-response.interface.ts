@@ -9,5 +9,3 @@ export interface Docente {
     apellidos: string;
     nombre_completo: string;
 }
-
-

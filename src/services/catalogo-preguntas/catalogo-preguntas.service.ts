@@ -18,13 +18,13 @@ export const getAll = async (params: GetCatalogoPreguntasParams) => {
 }
 
 export const create = async (
-  createCarrera: CreateCatalogoPreguntas
+  createCatalogo: CreateCatalogoPreguntas
 ) => {
-  return await axiosAdapter.post<CreateCatalogoPreguntas, CatalogoPreguntasResponse>(`/v1/admin/catalogo-preguntas`, createCarrera)
+  return await axiosAdapter.post<CreateCatalogoPreguntas, CatalogoPreguntasResponse>(`/v1/admin/catalogo-preguntas`, createCatalogo)
 }
 
-export const update = async (id: number, updateCarrera: UpdateCatalogoPreguntas) => {
-  return await axiosAdapter.put<UpdateCatalogoPreguntas, CatalogoPreguntasResponse>(`/v1/admin/catalogo-preguntas/${id}`, updateCarrera)
+export const update = async (id: number, updateCatalogo: UpdateCatalogoPreguntas) => {
+  return await axiosAdapter.put<UpdateCatalogoPreguntas, CatalogoPreguntasResponse>(`/v1/admin/catalogo-preguntas/${id}`, updateCatalogo)
 }
 
 export const remove = async (id: number) => {

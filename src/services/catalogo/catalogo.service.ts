@@ -1,5 +1,6 @@
 import { getAxiosAdapter } from '../common/axios.service'
 import type { DocenteResponse } from '../docente/interfaces/docentes-response.interface'
+import type { EstudianteResponse } from '../estudiante/interfaces/estudiantes-response.interface'
 import type {
   CicloResponse,
   FacultadResponse,
@@ -37,4 +38,8 @@ export const getAllPreguntas = async () => {
 
 export const getAllCiclos = async () => {
   return await axiosAdapter.get<CicloResponse>(`/v1/ciclo`, { params: { paginate: false } })
+}
+
+export const getAllEstudiantes = async () => {
+  return await axiosAdapter.get<EstudianteResponse>(`/v1/admin/estudiante`, { params: { paginate: false } })
 }
