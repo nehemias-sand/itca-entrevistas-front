@@ -15,7 +15,3 @@ export interface User {
     perfil: string;
     activo: boolean;
 }
-
-export type RegisterAdmin = Omit<User, 'id' | 'email_verified_at' | 'perfil' | 'activo'>
-
-export type UpdateUser = Partial<RegisterAdmin>

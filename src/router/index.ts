@@ -129,7 +129,7 @@ router.beforeEach(
       return next()
     }
 
-    if (!authStore.isAuthenticated) {
+    if (!authStore.isAuthenticated()) {
       return next({ name: 'Login', query: { redirect: to.fullPath } })
     }
 
