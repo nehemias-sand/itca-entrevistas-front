@@ -79,7 +79,7 @@ const menuItems = computed(() => {
   ]
 
   const docenteItems = [
-    { name: 'Mis Entrevistas', path: '/entrevistas' },
+    { name: 'Resultados', path: '/resultados' },
     { name: 'Evaluación de Estudiantes', path: '/evaluacion' }
   ]
 

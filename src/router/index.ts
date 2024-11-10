@@ -86,14 +86,8 @@ const router = createRouter({
         {
           path: '/resultados',
           name: 'Resultados',
-          component: () => import('../views/Admin/ResultadoEntrevistasView.vue'),
-          meta: { requiresAuth: true, canAccess: ['ADMIN'] }
-        },
-        {
-          path: '/entrevistas',
-          name: 'Entrevistas',
-          component: () => import('../views/Docente/EntrevistasView.vue'),
-          meta: { requiresAuth: true, canAccess: ['DOCENTE'] }
+          component: () => import('../views/ResultadoEntrevistasView.vue'),
+          meta: { requiresAuth: true, canAccess: ['ADMIN', 'DOCENTE'] }
         },
         {
           path: '/evaluacion',
