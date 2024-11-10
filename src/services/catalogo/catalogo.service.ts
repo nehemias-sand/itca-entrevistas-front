@@ -2,6 +2,7 @@ import { getAxiosAdapter } from '../common/axios.service'
 import type { DocenteResponse } from '../docente/interfaces/docentes-response.interface'
 import type { EstudianteResponse } from '../estudiante/interfaces/estudiantes-response.interface'
 import type {
+  CarreraCatalogoResponse,
   CicloResponse,
   FacultadResponse,
   JornadaResponse,
@@ -42,4 +43,8 @@ export const getAllCiclos = async () => {
 
 export const getAllEstudiantes = async () => {
   return await axiosAdapter.get<EstudianteResponse>(`/v1/estudiante`, { params: { paginate: false } })
+}
+
+export const getAllCarreras = async () => {
+  return await axiosAdapter.get<CarreraCatalogoResponse>(`/v1/admin/carrera`, { params: { paginate: false } })
 }
