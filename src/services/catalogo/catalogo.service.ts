@@ -1,13 +1,13 @@
+import type { CicloResponse } from '../ciclo/interfaces/ciclos-response.interface'
 import { getAxiosAdapter } from '../common/axios.service'
 import type { DocenteResponse } from '../docente/interfaces/docentes-response.interface'
 import type { EstudianteResponse } from '../estudiante/interfaces/estudiantes-response.interface'
+import type { PreguntaResponse } from '../pregunta/interface/pregunta-response.interface'
 import type {
   CarreraCatalogoResponse,
-  CicloResponse,
   FacultadResponse,
   JornadaResponse,
   ModalidadResponse,
-  PreguntaResponse,
   RegionalResponse
 } from './interfaces/catalogos-response.interface'
 

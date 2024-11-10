@@ -152,7 +152,7 @@ import type { Estudiante } from '@/services/estudiante/interfaces/estudiantes-re
 import type {
   CatalogoPreguntaCiclo,
   Ciclo
-} from '@/services/catalogo/interfaces/catalogos-response.interface'
+} from '@/services/ciclo/interfaces/ciclos-response.interface'
 
 const toast = useToast()
 
@@ -262,6 +262,4 @@ const guardarEntrevista = async () => {
 }
 </script>
 
-<style scoped>
-/* Estilos adicionales si son necesarios */
-</style>
+<style scoped></style>

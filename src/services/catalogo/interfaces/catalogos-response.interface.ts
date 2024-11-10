@@ -16,14 +16,6 @@ export interface RegionalResponse {
   data: Regional[]
 }
 
-export interface PreguntaResponse {
-  data: Pregunta[]
-}
-
-export interface CicloResponse {
-  data: Ciclo[]
-}
-
 export interface CarreraCatalogoResponse {
     data: Carrera[];
 }
@@ -48,29 +40,4 @@ export interface Regional {
   id: number
   nombre: string
   telefono: string
-}
-
-export interface Pregunta {
-  id: number
-  enunciado: string
-  tipo_respuesta: TipoRespuesta
-}
-
-export interface TipoRespuesta {
-  id: number
-  nombre: string
-}
-
-export interface Ciclo {
-  id: number
-  codigo: string
-  anio: string
-  numero: string
-  catalogos: CatalogoPreguntaCiclo[]
-}
-
-export interface CatalogoPreguntaCiclo {
-  id: number
-  nombre: string
-  preguntas: Pregunta[]
 }

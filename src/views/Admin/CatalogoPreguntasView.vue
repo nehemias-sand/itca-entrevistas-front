@@ -136,8 +136,9 @@ import * as catalogoPreguntasService from '@/services/catalogo-preguntas/catalog
 import * as catalogoService from '@/services/catalogo/catalogo.service'
 import type { CreateCatalogoPreguntas } from '@/services/catalogo-preguntas/interfaces/catalogo-preguntas-request.interface'
 import type { CatalogoPreguntas } from '@/services/catalogo-preguntas/interfaces/catalogo-preguntas-response.interface'
-import type { Ciclo, Pregunta } from '@/services/catalogo/interfaces/catalogos-response.interface'
 import type { GetCatalogoPreguntasParams } from '@/services/catalogo-preguntas/interfaces/get-catalogo-preguntas.interface'
+import type { Ciclo } from '@/services/ciclo/interfaces/ciclos-response.interface'
+import type { Pregunta } from '@/services/pregunta/interface/pregunta-response.interface'
 
 const toast = useToast()
 const confirm = useConfirm()

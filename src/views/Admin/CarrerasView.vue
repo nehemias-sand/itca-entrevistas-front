@@ -30,7 +30,11 @@
       <Column field="facultad.nombre" header="Facultad" sortable></Column>
       <Column header="Seguimientos">
         <template #body="slotProps">
-          <div v-for="seguimiento in slotProps.data.seguimientos" :key="seguimiento.id" class="mb-1">
+          <div
+            v-for="seguimiento in slotProps.data.seguimientos"
+            :key="seguimiento.id"
+            class="mb-1"
+          >
             {{ seguimiento.jornada.nombre }} - {{ seguimiento.modalidad.nombre }} -
             {{ seguimiento.regional.nombre }}
           </div>

@@ -245,7 +245,7 @@ import type {
 } from '@/services/catalogo/interfaces/catalogos-response.interface'
 import * as catalogoService from '@/services/catalogo/catalogo.service'
 import type { DataTablePageEvent } from 'primevue/datatable'
-import ConfirmDialog from 'primevue/confirmdialog';
+import ConfirmDialog from 'primevue/confirmdialog'
 
 const toast = useToast()
 const confirm = useConfirm()

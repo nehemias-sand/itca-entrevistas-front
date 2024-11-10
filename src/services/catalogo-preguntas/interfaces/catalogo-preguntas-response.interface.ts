@@ -1,4 +1,5 @@
-import type { Ciclo, Pregunta } from "@/services/catalogo/interfaces/catalogos-response.interface";
+import type { Ciclo } from "@/services/ciclo/interfaces/ciclos-response.interface";
+import type { Pregunta } from "@/services/pregunta/interface/pregunta-response.interface";
 
 export interface CatalogoPreguntasResponse {
     data: CatalogoPreguntas;
