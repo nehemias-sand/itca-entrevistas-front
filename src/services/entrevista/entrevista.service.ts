@@ -1,4 +1,3 @@
-import type { AxiosResponse } from 'axios'
 import { getAxiosAdapter } from '../common/axios.service'
 import type { ApiPaginatedResponse } from '../common/interfaces/api-paginated-response.interface'
 import type { CreateEntrevista } from './interfaces/entrevista-request.interface'
@@ -29,7 +28,7 @@ export const create = async (createEntrevista: CreateEntrevista) => {
 }
 
 export const exportToExcel = async (idCiclo?: number) => {
-  return await axiosAdapter.get<AxiosResponse>(`/v1/entrevista/export`, {
+  return await axiosAdapter.get<{ file: string }>(`/v1/entrevista/export`, {
     params: { id_ciclo: idCiclo },
     responseType: 'json'
   })
