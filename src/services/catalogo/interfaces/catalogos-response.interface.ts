@@ -1,3 +1,5 @@
+import type { Carrera } from '../../carrera/interfaces/carreras-response.interface';
+
 export interface FacultadResponse {
     data: Facultad[];
 }
@@ -20,6 +22,10 @@ export interface PreguntaResponse {
 
 export interface CicloResponse {
     data: Ciclo[];
+}
+
+export interface CarreraCatalogoResponse {
+    data: Carrera[];
 }
 
 export interface Facultad {
