@@ -41,5 +41,5 @@ export const getAllCiclos = async () => {
 }
 
 export const getAllEstudiantes = async () => {
-  return await axiosAdapter.get<EstudianteResponse>(`/v1/admin/estudiante`, { params: { paginate: false } })
+  return await axiosAdapter.get<EstudianteResponse>(`/v1/estudiante`, { params: { paginate: false } })
 }

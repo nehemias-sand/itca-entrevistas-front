@@ -1,58 +1,70 @@
 export interface FacultadResponse {
-    data: Facultad[];
+  data: Facultad[]
 }
 
 export interface JornadaResponse {
-    data: Jornada[];
+  data: Jornada[]
 }
 
 export interface ModalidadResponse {
-    data: Modalidad[];
+  data: Modalidad[]
 }
 
 export interface RegionalResponse {
-    data: Regional[];
+  data: Regional[]
 }
 
 export interface PreguntaResponse {
-    data: Pregunta[];
+  data: Pregunta[]
 }
 
 export interface CicloResponse {
-    data: Ciclo[];
+  data: Ciclo[]
 }
 
 export interface Facultad {
-    id: number,
-    codigo: string;
-    nombre: string;
+  id: number
+  codigo: string
+  nombre: string
 }
 
 export interface Jornada {
-    id: number,
-    nombre: string;
+  id: number
+  nombre: string
 }
 
 export interface Modalidad {
-    id: number,
-    nombre: string;
+  id: number
+  nombre: string
 }
 
 export interface Regional {
-    id: number,
-    nombre: string;
-    telefono: string;
+  id: number
+  nombre: string
+  telefono: string
 }
 
 export interface Pregunta {
-    id: number;
-    enunciado: string;
-    tipo_respuesta: string;
+  id: number
+  enunciado: string
+  tipo_respuesta: TipoRespuesta
+}
+
+export interface TipoRespuesta {
+  id: number
+  nombre: string
 }
 
 export interface Ciclo {
-    id: number;
-    codigo: string;
-    anio: string;
-    numero: string;
+  id: number
+  codigo: string
+  anio: string
+  numero: string
+  catalogos: CatalogoPreguntaCiclo[]
+}
+
+export interface CatalogoPreguntaCiclo {
+  id: number
+  nombre: string
+  preguntas: Pregunta[]
 }

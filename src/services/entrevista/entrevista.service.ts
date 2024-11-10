@@ -7,5 +7,5 @@ const axiosAdapter = getAxiosAdapter()
 export const create = async (
   createEntrevista: CreateEntrevista
 ) => {
-  return await axiosAdapter.post<CreateEntrevista, EntrevistaResponse>(`/v1/admin/catalogo-preguntas`, createEntrevista)
+  return await axiosAdapter.post<CreateEntrevista, EntrevistaResponse>(`/v1/docente/entrevista`, createEntrevista)
 }

@@ -1,5 +1,5 @@
 export interface CreateEntrevista {
-    aprobada: string,
+    aprobada: boolean,
     observaciones: string ;
     id_estudiante: number;
     id_ciclo: number;
