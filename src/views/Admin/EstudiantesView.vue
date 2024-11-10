@@ -1,7 +1,20 @@
 <template>
   <div class="p-4">
     <div class="mb-4 flex justify-between items-center">
-      <Button label="Agregar Estudiante" icon="pi pi-plus" @click="openNewEstudianteDialog" />
+      <div class="flex items-center space-x-4">
+        <Button label="Agregar Estudiante" icon="pi pi-plus" @click="openNewEstudianteDialog" />
+        <div class="flex items-center space-x-2">
+          <FileUpload
+            mode="basic"
+            :customUpload="true"
+            @uploader="importCSV"
+            accept=".csv"
+            :auto="true"
+            chooseLabel="Importar CSV"
+          />
+          <Button label="Descargar Plantilla" icon="pi pi-download" @click="downloadCSVTemplate" class="p-button-secondary" />
+        </div>
+      </div>
     </div>
 
     <div class="mb-4">
@@ -427,6 +440,48 @@ const deleteEstudiante = async (id: number) => {
       detail: 'No se pudo eliminar el estudiante',
       life: 3000
     })
+  }
+}
+
+const importCSV = async (event: any) => {
+  const file = event.files[0]
+  if (file) {
+    const formData = new FormData()
+    formData.append('estudiantes_csv', file)
+    try {
+      await estudianteService.importCSV(formData)
+      toast.add({
+        severity: 'success',
+        summary: 'Éxito',
+        detail: 'Estudiantes importados correctamente',
+        life: 3000
+      })
+      loadEstudiantes()
+    } catch (error) {
+      console.log(error);
+      
+      toast.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'No se pudieron importar los estudiantes',
+        life: 3000
+      })
+    }
+  }
+}
+
+const downloadCSVTemplate = () => {
+  const template = 'nombres,apellidos,correo,id_carrera,id_jornada,id_modalidad,id_regional\n'
+  const blob = new Blob([template], { type: 'text/csv;charset=utf-8;' })
+  const link = document.createElement('a')
+  if (link.download !== undefined) {
+    const url = URL.createObjectURL(blob)
+    link.setAttribute('href', url)
+    link.setAttribute('download', 'estudiantes_csv.csv')
+    link.style.visibility = 'hidden'
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
   }
 }
 

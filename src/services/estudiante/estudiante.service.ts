@@ -20,6 +20,18 @@ export const create = async (
   return await axiosAdapter.post<CreateEstudiate, EstudianteResponse>(`/v1/admin/estudiante/register`, createEstudiante)
 }
 
+export const importCSV = async (
+  formData: FormData
+) => {
+  const config = {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  }
+
+  return await axiosAdapter.post<FormData, {}>(`/v1/admin/estudiante/import`, formData, config)
+}
+
 export const update = async (id: number, updateEstudiante: UpdateEstudiante) => {
   return await axiosAdapter.put<UpdateEstudiante, EstudianteResponse>(`/v1/admin/estudiante/${id}`, updateEstudiante)
 }
