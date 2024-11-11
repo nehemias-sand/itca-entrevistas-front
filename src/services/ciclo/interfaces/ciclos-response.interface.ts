@@ -7,8 +7,8 @@ export interface CicloResponse {
 export interface Ciclo {
   id: number
   codigo: string
-  anio: string
-  numero: string
+  anio: number
+  num: number
   catalogos: CatalogoPreguntaCiclo[]
 }
 

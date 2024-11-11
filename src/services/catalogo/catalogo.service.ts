@@ -4,11 +4,13 @@ import type { DocenteResponse } from '../docente/interfaces/docentes-response.in
 import type { EstudianteResponse } from '../estudiante/interfaces/estudiantes-response.interface'
 import type { PreguntaResponse } from '../pregunta/interface/pregunta-response.interface'
 import type {
+  CargoResponse,
   CarreraCatalogoResponse,
   FacultadResponse,
   JornadaResponse,
   ModalidadResponse,
-  RegionalResponse
+  RegionalResponse,
+  TipoRespuestaCatalogoResponse,
 } from './interfaces/catalogos-response.interface'
 
 const axiosAdapter = getAxiosAdapter()
@@ -27,6 +29,14 @@ export const getAllModalidades = async () => {
 
 export const getAllRegionales = async () => {
   return await axiosAdapter.get<RegionalResponse>(`/v1/admin/catalogo/regional`)
+}
+
+export const getAllTiposRespuesta = async () => {
+  return await axiosAdapter.get<TipoRespuestaCatalogoResponse>(`/v1/admin/catalogo/tipo-respuesta`)
+}
+
+export const getAllCargos = async () => {
+  return await axiosAdapter.get<CargoResponse>(`/v1/admin/catalogo/cargo`)
 }
 
 export const getAllDocentes = async () => {
