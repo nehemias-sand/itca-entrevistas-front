@@ -40,7 +40,7 @@ export const getAllCargos = async () => {
 }
 
 export const getAllDocentes = async () => {
-  return await axiosAdapter.get<DocenteResponse>(`/v1/admin/docente`, { params: { paginate: false } })
+  return await axiosAdapter.get<DocenteResponse>(`/v1/admin/docente`, { params: { paginate: false, id_cargo: 1 } })
 }
 
 export const getAllPreguntas = async () => {
