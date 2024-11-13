@@ -124,15 +124,28 @@
 
     <div class="mb-4">
       <label class="font-semibold flex items-center text-gray-700">
-        <Checkbox v-model="aprobada" :binary="true" />
+        <Checkbox v-model="aprobada" :binary="true" @change="aprobarEntrevista" />
         <span class="ml-2">Aprobada</span>
       </label>
     </div>
 
+    <Dialog
+      v-model:visible="showConfirmDialog"
+      header="Confirmar"
+      :style="{ width: '350px' }"
+      :modal="true"
+    >
+      <p class="m-0">¿Está seguro de no aprobar al estudiante?</p>
+      <template #footer>
+        <Button label="No" icon="pi pi-times" @click="cancelarAprobacion" class="p-button-text" />
+        <Button label="Sí" icon="pi pi-check" @click="confirmarAprobacion" autofocus />
+      </template>
+    </Dialog>
+
     <Button
       label="Guardar Entrevista"
       icon="pi pi-check"
-      @click="guardarEntrevista"
+      @click="verificarGuardarEntrevista"
       class="p-button-primary"
       :disabled="!isFormValid"
     />
@@ -153,6 +166,9 @@ import type {
   CatalogoPreguntaCiclo,
   Ciclo
 } from '@/services/ciclo/interfaces/ciclos-response.interface'
+import Dialog from 'primevue/dialog'
+import Checkbox from 'primevue/checkbox'
+import Button from 'primevue/button'
 
 const toast = useToast()
 
@@ -165,6 +181,33 @@ const respuestas = reactive<{ [key: string]: string }>({})
 const observaciones = ref<string>('')
 const aprobada = ref<boolean>(false)
 const submitted = ref<boolean>(false)
+const showConfirmDialog = ref<boolean>(false)
+
+const aprobarEntrevista = (event: Event) => {
+  const isChecked = (event.target as HTMLInputElement).checked
+  if (!isChecked) {
+    showConfirmDialog.value = true
+  }
+}
+
+const cancelarAprobacion = () => {
+  aprobada.value = true
+  showConfirmDialog.value = false
+}
+
+const confirmarAprobacion = () => {
+  aprobada.value = false
+  showConfirmDialog.value = false
+  guardarEntrevista()
+}
+
+const verificarGuardarEntrevista = () => {
+  if (!aprobada.value) {
+    showConfirmDialog.value = true
+  } else {
+    guardarEntrevista()
+  }
+}
 
 const isFormValid = computed(() => {
   if (!selectedEstudiante.value || !selectedCiclo.value || !selectedCatalogo.value) {

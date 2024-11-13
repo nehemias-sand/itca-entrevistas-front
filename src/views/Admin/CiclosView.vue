@@ -144,7 +144,6 @@ const loadCiclos = async (page = 1) => {
 
   try {
     const response = await cicloService.getAll(params)
-    console.log(response)
     ciclos.value = response.data
     totalRecords.value = response.meta.total
   } catch (error) {
