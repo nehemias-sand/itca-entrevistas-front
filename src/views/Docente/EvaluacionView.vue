@@ -124,7 +124,7 @@
 
     <div class="mb-4">
       <label class="font-semibold flex items-center text-gray-700">
-        <Checkbox v-model="aprobada" :binary="true" @change="aprobarEntrevista" />
+        <Checkbox v-model="aprobada" :binary="true" />
         <span class="ml-2">Aprobada</span>
       </label>
     </div>
@@ -135,17 +135,17 @@
       :style="{ width: '350px' }"
       :modal="true"
     >
-      <p class="m-0">¿Está seguro de no aprobar al estudiante?</p>
+      <p class="m-0">¿Está seguro de {{ aprobada ? 'aprobar' : 'no aprobar' }} al estudiante?</p>
       <template #footer>
-        <Button label="No" icon="pi pi-times" @click="cancelarAprobacion" class="p-button-text" />
-        <Button label="Sí" icon="pi pi-check" @click="confirmarAprobacion" autofocus />
+        <Button label="No" icon="pi pi-times" @click="cancelar" class="p-button-text" />
+        <Button label="Sí" icon="pi pi-check" @click="confirmar" autofocus />
       </template>
     </Dialog>
 
     <Button
       label="Guardar Entrevista"
       icon="pi pi-check"
-      @click="verificarGuardarEntrevista"
+      @click="verificarAprobado"
       class="p-button-primary"
       :disabled="!isFormValid"
     />
@@ -183,30 +183,17 @@ const aprobada = ref<boolean>(false)
 const submitted = ref<boolean>(false)
 const showConfirmDialog = ref<boolean>(false)
 
-const aprobarEntrevista = (event: Event) => {
-  const isChecked = (event.target as HTMLInputElement).checked
-  if (!isChecked) {
-    showConfirmDialog.value = true
-  }
+const verificarAprobado = () => {
+  showConfirmDialog.value = true
 }
 
-const cancelarAprobacion = () => {
-  aprobada.value = true
+const cancelar = () => {
   showConfirmDialog.value = false
 }
 
-const confirmarAprobacion = () => {
-  aprobada.value = false
+const confirmar = () => {
   showConfirmDialog.value = false
   guardarEntrevista()
-}
-
-const verificarGuardarEntrevista = () => {
-  if (!aprobada.value) {
-    showConfirmDialog.value = true
-  } else {
-    guardarEntrevista()
-  }
 }
 
 const isFormValid = computed(() => {
