@@ -21,6 +21,12 @@ Primero, instala las dependencias:
 yarn
 ```
 
+Despues copia el archivo `.env.example` a `.env.local` y configura la variable de entorno VITE_VUE_APP_API_URL con la url del backend.
+
+```bash
+cp .env.example .env.local
+```
+
 ### Compilar y Recargar en Caliente para Desarrollo
 
 Inicia el entorno de desarrollo con:
