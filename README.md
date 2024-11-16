@@ -1,39 +1,46 @@
+
 # ITCA Entrevistas
 
-This template should help get you started developing with Vue 3 in Vite.
+## Configuración Recomendada del IDE
 
-## Recommended IDE Setup
+Utiliza [Visual Studio Code (VSCode)](https://code.visualstudio.com/) junto con la extensión [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (asegúrate de desactivar la extensión `Vetur` para evitar conflictos).
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Soporte de Tipos para Importaciones `.vue` en TypeScript
 
-## Type Support for `.vue` Imports in TS
+TypeScript no maneja por defecto la información de tipos para importaciones de archivos `.vue`. Para solucionar esto, reemplazamos el comando `tsc` de TypeScript con `vue-tsc` para realizar la comprobación de tipos. En los editores, es necesario instalar [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) para que el servicio de lenguaje de TypeScript sea compatible con los tipos de archivos `.vue`.
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+## Personalizar la Configuración
 
-## Customize configuration
+Consulta la [referencia de configuración de Vite](https://vitejs.dev/config/) para más detalles.
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+## Configuración del Proyecto
 
-## Project Setup
+Primero, instala las dependencias:
 
-```sh
+```bash
 yarn
 ```
 
-### Compile and Hot-Reload for Development
+### Compilar y Recargar en Caliente para Desarrollo
 
-```sh
+Inicia el entorno de desarrollo con:
+
+```bash
 yarn dev
 ```
 
-### Type-Check, Compile and Minify for Production
+### Verificación de Tipos, Compilación y Minificación para Producción
 
-```sh
+Prepara el proyecto para producción ejecutando:
+
+```bash
 yarn build
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+### Analizar Código con [ESLint](https://eslint.org/)
 
-```sh
+Ejecuta el análisis de código estático con:
+
+```bash
 yarn lint
 ```
